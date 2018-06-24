@@ -222,33 +222,6 @@ function 8937_sched_dcvs_hmp()
 }
 target=`getprop ro.board.platform`
 
-function configure_zram_parameters() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    low_ram=`getprop ro.config.low_ram`
-
-    # Zram disk - 75% for Go devices.
-    # For 512MB Go device, size = 384MB
-    # For 1GB Go device, size = 768MB
-    # Others - 512MB size
-    # And enable lz4 zram compression for Go devices
-    zram_enable=`getprop ro.vendor.qti.config.zram`
-    if [ "$zram_enable" == "true" ]; then
-        if [ $MemTotal -le 524288 ] && [ "$low_ram" == "true" ]; then
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 402653184 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 1048576 ] && [ "$low_ram" == "true" ]; then
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 805306368 > /sys/block/zram0/disksize
-        else
-            echo 536870912 > /sys/block/zram0/disksize
-        fi
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
-}
-
 function configure_memory_parameters() {
     # Set Memory paremeters.
     #
@@ -272,8 +245,6 @@ if [ "$ProductName" == "msm8996" ]; then
       # Enable Adaptive LMK
       echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
       echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
-
-      configure_zram_parameters
 else
     arch_type=`uname -m`
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
@@ -316,11 +287,10 @@ else
         echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     else
         if [ $MemTotal -le 1048576 ] && [ "$low_ram" == "true" ]; then
-            # Disable KLMK, ALMK, PPR & Core Control for Go devices
+            # Disable KLMK, ALMK & PPR for Go devices
             echo 0 > /sys/module/lowmemorykiller/parameters/enable_lmk
             echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
             echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-            echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/disable
         else
             echo 50 > /sys/module/process_reclaim/parameters/pressure_min
             echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
@@ -328,8 +298,6 @@ else
             echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
         fi
     fi
-
-    configure_zram_parameters
 
     SWAP_ENABLE_THRESHOLD=1048576
     swap_enable=`getprop ro.vendor.qti.config.swap`
@@ -1559,12 +1527,8 @@ case "$target" in
             hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
         fi
 
-        if [ -f /sys/devices/soc0/platform_subtype_id ]; then
-            platform_subtype_id=`cat /sys/devices/soc0/platform_subtype_id`
-        fi
-
         case "$soc_id" in
-            "293" | "304" | "338" | "351" )
+            "293" | "304" | "338" )
 
                 # Start Host based Touch processing
                 case "$hw_platform" in

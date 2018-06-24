@@ -21,4 +21,4 @@ include $(DEVICE_PATH)/board/*.mk
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
 # Inherit the proprietary files
--include vendor/xiaomi/land/BoardConfigVendor.mk
+-include vendor/lenovo/karate/BoardConfigVendor.mk

@@ -1,2 +1,2 @@
 # Device path
-DEVICE_PATH := device/xiaomi/land
+DEVICE_PATH := device/lenovo/karate

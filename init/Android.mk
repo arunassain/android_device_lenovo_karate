@@ -20,9 +20,9 @@ include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := system/core/init
 LOCAL_C_INCLUDES += external/selinux/libselinux/include
-LOCAL_MODULE := libinit_land
+LOCAL_MODULE := libinit_karate
 LOCAL_MODULE_TAGS := optional
-LOCAL_SRC_FILES := init_land.cpp
+LOCAL_SRC_FILES := init_karate.cpp
 LOCAL_STATIC_LIBRARIES := libbase libselinux
 
 include $(BUILD_STATIC_LIBRARY)

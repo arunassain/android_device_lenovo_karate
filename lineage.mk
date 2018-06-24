@@ -28,23 +28,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Lineage stuff
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from land device
+# Inherit from karate device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-PRODUCT_BRAND := Xiaomi
-PRODUCT_DEVICE := land
-PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := lineage_land
+PRODUCT_BRAND := lenovo
+PRODUCT_DEVICE := karate
+PRODUCT_MANUFACTURER := lenovo
+PRODUCT_NAME := lineage_karate
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
-TARGET_VENDOR_PRODUCT_NAME := land
+TARGET_VENDOR_PRODUCT_NAME := karate
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="land-user 6.0.1 MMB29M V9.2.2.0.MALMIEK release-keys"
+    PRIVATE_BUILD_DESC="karate-user 7.0 NRD90N K33_S231_171114_ROW release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and boot image
-BUILD_FINGERPRINT := "Xiaomi/land/land:6.0.1/MMB29M/V9.2.2.0.MALMIEK:user/release-keys"
+BUILD_FINGERPRINT := "Lenovo/karate/K33:7.0/NRD90N/K33_S231_171114_ROW:user/release-keys"
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.model

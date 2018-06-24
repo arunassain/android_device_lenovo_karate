@@ -18,8 +18,8 @@
 
 set -e
 
-DEVICE=land
-VENDOR=xiaomi
+DEVICE=karate
+VENDOR=lenovo
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

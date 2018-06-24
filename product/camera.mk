@@ -9,10 +9,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Snap
 
-# Libshim
-#PRODUCT_PACKAGES += \
-    libshims_camera
-
 # HIDL Packages
 PRODUCT_PACKAGES += \
     camera.device@1.0-impl \

@@ -26,4 +26,4 @@ PRODUCT_ENFORCE_RRO_TARGETS := \
 include $(DEVICE_PATH)/product/*.mk
 
 # Inherit proprietary files
-$(call inherit-product, vendor/xiaomi/land/land-vendor.mk)
+$(call inherit-product, vendor/lenovo/karate/karate-vendor.mk)
