@@ -18,7 +18,8 @@
 include $(DEVICE_PATH)/board/*.mk
 
 # Properties
-TARGET_SYSTEM_PROP := $(DEVICE_PATH)/vendor.prop
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+TARGET_VENDOR_PROP += $(PLATFORM_PATH)/vendor.prop
 
 # Inherit the proprietary files
 -include vendor/lenovo/karate/BoardConfigVendor.mk
