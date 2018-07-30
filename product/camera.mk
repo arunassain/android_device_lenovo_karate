@@ -1,9 +1,9 @@
 # Permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-    frameworks/native/data/etc/android.hardware.camera.full.xml:system/etc/permissions/android.hardware.camera.full.xml \
-    frameworks/native/data/etc/android.hardware.camera.raw.xml:system/etc/permissions/android.hardware.camera.raw.xml
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
+    frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
 
 # Snap Camera
 PRODUCT_PACKAGES += \
@@ -19,5 +19,5 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt libc
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/libshims/libc_32.so:system/lib/libc.so \
-    $(DEVICE_PATH)/libshims/libc_64.so:system/lib64/libc.so
+    $(DEVICE_PATH)/libshims/libc_32.so:$(TARGET_COPY_OUT_VENDOR)/lib/libc.so \
+    $(DEVICE_PATH)/libshims/libc_64.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libc.so

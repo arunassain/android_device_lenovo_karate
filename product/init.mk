@@ -1,6 +1,7 @@
 # Init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
+	init.lenovo.common.rc \
     init.qcom.rc \
     init.qcom.sh \
     init.class_main.sh \
