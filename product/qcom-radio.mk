@@ -18,9 +18,7 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libxml2 \
-    libprotobuf-cpp-full \
-    libqdMetaData.$(TARGET_COPY_OUT_VENDOR)
+    libxml2 
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -29,8 +27,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
-# Netutils
-PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0 \
-    android.$(TARGET_COPY_OUT_VENDOR).net.netd@1.0 \
-    libandroid_net

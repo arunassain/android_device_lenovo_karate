@@ -1,6 +1,6 @@
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_WIDTH := 720
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
