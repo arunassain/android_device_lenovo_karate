@@ -33,20 +33,21 @@ vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
 
 # Audio ACDB
-etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
-etc/acdbdata/QRD/QRD_General_cal.acdb:vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
-etc/acdbdata/QRD/QRD_Global_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb
-etc/acdbdata/QRD/QRD_Handset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Handset_cal.acdb
-etc/acdbdata/QRD/QRD_Hdmi_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
-etc/acdbdata/QRD/QRD_Headset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
-etc/acdbdata/QRD/QRD_Speaker_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/Bluetooth_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/Bluetooth_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/General_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/General_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/Global_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/Global_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/Handset_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/Handset_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/Hdmi_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/Hdmi_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/Headset_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/Headset_cal.acdb
+etc/acdbdata/msm8937-karate-snd-card/Speaker_cal.acdb:vendor/etc/acdbdata/msm8937-karate-snd-card/Speaker_cal.acdb
 
 # Camera 
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 vendor/lib/libmmcamera_dw9767_karateof_eeprom.so
 vendor/lib/libmmcamera_dw9767_karateqt_eeprom.so
 vendor/lib/libmmcamera_imx219_karateof_eeprom.so
 vendor/lib/libmmcamera_imx219_karateqt_eeprom.so
+vendor/lib/libmmcamera_imx258.so
 vendor/lib/libmmcamera_eebinparse.so
 vendor/lib/libmmcamera_eeprom_util.so
 vendor/lib/libmmcamera_eztune_module.so
@@ -189,15 +190,15 @@ vendor/lib/libchromatix_imx258_karateqt_zsl_preview_dw9767.so
 vendor/lib/libchromatix_imx258_karateqt_zsl_video_dw9767.so
 
 # Camera firmware 
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_10_0.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_5_0.fw
-etc/firmware/cpp_firmware_v1_5_2.fw
-etc/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw
+etc/firmware/cpp_firmware_v1_1_1.fw:vendor/etc/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw:vendor/etc/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_10_0.fw:vendor/etc/firmware/cpp_firmware_v1_10_0.fw
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/etc/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/cpp_firmware_v1_4_0.fw:vendor/etc/firmware/cpp_firmware_v1_4_0.fw
+etc/firmware/cpp_firmware_v1_5_0.fw:vendor/etc/firmware/cpp_firmware_v1_5_0.fw
+etc/firmware/cpp_firmware_v1_5_2.fw:vendor/etc/firmware/cpp_firmware_v1_5_2.fw
+etc/firmware/cpp_firmware_v1_6_0.fw:vendor/etc/firmware/cpp_firmware_v1_6_0.fw
+etc/firmware/cpp_firmware_v1_8_0.fw:vendor/etc/firmware/cpp_firmware_v1_8_0.fw
 
 # Camera sensors 
 vendor/lib/libmmcamera_isp_abf40.so
@@ -242,35 +243,22 @@ vendor/lib/libmmcamera_isp_wb40.so
 -etc/qdcm_calib_data_otm1901a_1080p_video_TianMa.xml
 
 # Fingerprint 
-lib/hw/fingerprint.default.so
-lib/libcom_fingerprints_service.so
-lib/lib_fpc_tac_shared.so:
-lib64/hw/fingerprint.default.so
-lib64/libcom_fingerprints_service.so
-lib64/lib_fpc_tac_shared.so
+lib/hw/fingerprint.default.so:vendor/hw/lib/fingerprint.default.so
+lib/libcom_fingerprints_service.so:vendor/lib/libcom_fingerprints_service.so
+lib/lib_fpc_tac_shared.so:vendor/lib/lib_fpc_tac_shared.so
+lib64/hw/fingerprint.default.so:vendor/hw/lib64/fingerprint.default.so
+lib64/libcom_fingerprints_service.so:vendor/lib64/libcom_fingerprints_service.so
+lib64/lib_fpc_tac_shared.so:vendor/lib64/lib_fpc_tac_shared.so
 
-# Lights
-lib/hw/lights.msm8937.so
-lib64/hw/lights.msm8937.so
+# Graphics firmware  
+etc/firmware/a530_gpmu.fw2:vendor/firmware/a530_gpmu.fw2 
+etc/firmware/a530_pfp.fw:vendor/firmware/a530_pfp.fw 
+etc/firmware/a530_pm4.fw:vendor/firmware/a530_pm4.fw 
+etc/firmware/a530v1_pfp.fw:vendor/firmware/a530v1_pfp.fw 
+etc/firmware/a530v1_pm4.fw:vendor/firmware/a530v1_pm4.fw 
+etc/firmware/a530v2_seq.fw2:vendor/firmware/a530v2_seq.fw2 
+etc/firmware/a530v3_gpmu.fw2:vendor/firmware/a530v3_gpmu.fw2 
+etc/firmware/a530v3_seq.fw2:vendor/firmware/a530v3_seq.fw2
 
-# Graphics firmware 
-etc/firmware/a225p5_pm4.fw
-etc/firmware/a225_pfp.fw
-etc/firmware/a225_pm4.fw
-etc/firmware/a300_pfp.fw
-etc/firmware/a300_pm4.fw
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
-etc/firmware/a530_gpmu.fw2
-etc/firmware/a530_pfp.fw
-etc/firmware/a530_pm4.fw
-etc/firmware/a530v1_pfp.fw
-etc/firmware/a530v1_pm4.fw
-etc/firmware/a530v2_seq.fw2
-etc/firmware/a530v3_gpmu.fw2
-etc/firmware/a530v3_seq.fw2
-
-# Wi-Fi - from tissot - OPR1.170623.026 8.2.8
+# WIFI
 vendor/bin/wcnss_service
