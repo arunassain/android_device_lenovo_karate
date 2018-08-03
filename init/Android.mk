@@ -18,11 +18,19 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := system/core/init
-LOCAL_C_INCLUDES += external/selinux/libselinux/include
-LOCAL_MODULE := libinit_karate
+LOCAL_C_INCLUDES := \
+    system/core/base/include \
+    system/core/init
+LOCAL_CFLAGS := -Wall
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := init_karate.cpp
-LOCAL_STATIC_LIBRARIES := libbase libselinux
+LOCAL_STATIC_LIBRARIES := \
+    libbase \
+    libselinux
+
+ifneq ($(TARGET_LIBINIT_KARATE_DEFINES_FILE),)
+    LOCAL_SRC_FILES += ../../../../$(TARGET_LIBINIT_KARATE_DEFINES_FILE)
+endif
+LOCAL_MODULE := libinit_karate
 
 include $(BUILD_STATIC_LIBRARY)
