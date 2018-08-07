@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/tissot
+DEVICE_PATH := device/lenovo/karate
 
 # Architecture
 TARGET_ARCH := arm64

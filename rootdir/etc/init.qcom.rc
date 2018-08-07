@@ -1,3 +1,4 @@
+
 # Copyright (c) 2009-2012, 2014-2016, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -25,6 +26,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /vendor/etc/init/hw/init.qcom.power.rc
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
 
@@ -66,6 +68,13 @@ on early-boot
     chmod 0664 /sys/class/graphics/fb0/mode
     chown system graphics /sys/class/graphics/fb0/msm_cmd_autorefresh_en
     chmod 0664 /sys/class/graphics/fb0/msm_cmd_autorefresh_en
+
+    # SSR setup
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level "related"
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level "related"
 
 on boot
     chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
@@ -201,9 +210,6 @@ on post-fs-data
     mkdir /data/shared 0755
     chown system system /data/shared
 
-    # Create /data/vendor/time folder for time-services
-    mkdir /data/vendor/time/ 0700 system system
-
     setprop vold.post_fs_data_done 1
 
     # Create a folder for SRS to be able to create a usercfg file
@@ -285,7 +291,6 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
 service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
-    group system wakelock
     shutdown critical
     ioprio rt 0
     writepid /dev/cpuset/system-background/tasks
@@ -319,8 +324,6 @@ on property:hw.fm.init=1
 
 service netmgrd /vendor/bin/netmgrd
     class main
-    user root
-    group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /system/vendor/bin/ipacm-diag
@@ -374,19 +377,15 @@ service loc_launcher /vendor/bin/loc_launcher
     group gps inet diag wifi
     writepid /dev/cpuset/system-background/tasks
 
-service qcom-sh /vendor/bin/sh /vendor/bin/init.qcom.sh
+service qcom-sh /vendor/bin/sh /init.qcom.sh
     class late_start
     user root
     oneshot
 
-service qcom-post-boot /vendor/bin/sh /vendor/bin/init.qcom.post_boot.sh
+service atfwd /vendor/bin/ATFWD-daemon
     class late_start
-    user root
-    disabled
-    oneshot
-
-on property:sys.boot_completed=1
-    start qcom-post-boot
+    user system
+    group system radio
 
 service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
@@ -394,10 +393,10 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio log readproc wakelock oem_2901
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service charger /charger
+service charger /sbin/chargeonlymode
     class charger
-    group graphics system
-    writepid /dev/cpuset/system-background/tasks
+    group system graphics
+    seclabel u:r:charger:s0
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
@@ -405,6 +404,3 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     group root
     disabled
     writepid /dev/cpuset/system-background/tasks
-
-on property:sys.boot_completed=1
-    setprop sys.io.scheduler "bfq"

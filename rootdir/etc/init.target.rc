@@ -59,6 +59,9 @@ on post-fs-data
     mkdir /data/misc/hbtp 0750 system system
     mkdir /data/misc/dts 0770 media audio
 
+    # Create folder for mm-qcamera-daemon
+    mkdir /data/vendor/qcam 0770 camera camera
+
 # Start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
@@ -78,7 +81,7 @@ service qseecomd /vendor/bin/qseecomd
     user root
     group root
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine -c ${sys.qcom.thermalcfg:-/vendor/etc/thermal-engine.conf}
     class main
     user root
     socket thermal-send-client stream 0666 system system
@@ -127,32 +130,14 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
     start vendor.imsrcsservice
 
-service ppd /system/vendor/bin/mm-pp-dpps
-    class late_start
-    disabled
+service ppd /vendor/bin/mm-pp-dpps
+    class hal
     user system
-    socket pps stream 0660 system system
     group system graphics
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
 
 on property:init.svc.surfaceflinger=restarting
     stop hwcomposer-2-1
     start hwcomposer-2-1
-    stop ppd
-
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
 
 service hbtp /system/vendor/bin/hbtp_daemon
     class main
@@ -177,12 +162,10 @@ service hvdcp_opti /vendor/bin/hvdcp_opti
     group root
 
 on charger
-    wait /dev/block/bootdevice/by-name/system
-    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    load_all_props
+    load_system_props
+    setprop sys.usb.configfs 0
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
-    start qcom-post-boot
     start thermal-engine
 
 on property:sys.boot_completed=1
