@@ -18,8 +18,8 @@
 
 set -e
 
-DEVICE=land
-VENDOR=xiaomi
+DEVICE=karate
+VENDOR=lenovo
 
 INITIAL_COPYRIGHT_YEAR=2016
 

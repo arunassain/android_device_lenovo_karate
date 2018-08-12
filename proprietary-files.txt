@@ -1,32 +1,21 @@
 # Audio
-vendor/etc/drc/drc_cfg_5.1.txt
-vendor/etc/drc/drc_cfg_AZ.txt
-vendor/etc/surround_sound_3mic/surround_sound_rec_5.1.cfg
-vendor/etc/surround_sound_3mic/surround_sound_rec_AZ.cfg
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
-vendor/lib/libacdbmapper.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libadm.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
-vendor/lib/libaudiodevarb.so
-vendor/lib/libdrc.so
 vendor/lib/libhwdaphal.so
-vendor/lib/libqct_resampler.so
-vendor/lib/libsurround_3mic_proc.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
-vendor/lib64/libacdbmapper.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudiodevarb.so
 vendor/lib64/libhwdaphal.so
 vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcreverb.so
@@ -84,8 +73,8 @@ vendor/lib/libmmcamera2_q3a_core.so
 vendor/lib/libmmcamera2_sensor_modules.so
 vendor/lib/libmmcamera2_stats_algorithm.so
 vendor/lib/libmmcamera2_stats_modules.so
-vendor/lib/libmmcamera2_chromaflash_lib.so
-vendor/lib/libmmcamera2_dbg.so
+vendor/lib/libmmcamera_chromaflash_lib.so
+vendor/lib/libmmcamera_dbg.so
 vendor/lib/libmmcamera_dummyalgo.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
@@ -98,10 +87,6 @@ vendor/lib/libts_detected_face_hal.so
 vendor/lib/libts_face_beautify_hal.so
 vendor/lib/libubifocus.so
 vendor/lib/liboptizoom.so
-vendor/lib64/libmmsw_detail_enhancement.so
-vendor/lib64/libmmsw_math.so
-vendor/lib64/libmmsw_opencl.so
-vendor/lib64/libmmsw_platform.so
 
 # Camera actuators 
 vendor/lib/libactuator_dw9767_karateof.so
@@ -190,15 +175,15 @@ vendor/lib/libchromatix_imx258_karateqt_zsl_preview_dw9767.so
 vendor/lib/libchromatix_imx258_karateqt_zsl_video_dw9767.so
 
 # Camera firmware 
-etc/firmware/cpp_firmware_v1_1_1.fw:vendor/etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw:vendor/etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_10_0.fw:vendor/etc/firmware/cpp_firmware_v1_10_0.fw
-etc/firmware/cpp_firmware_v1_2_0.fw:vendor/etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw:vendor/etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_5_0.fw:vendor/etc/firmware/cpp_firmware_v1_5_0.fw
-etc/firmware/cpp_firmware_v1_5_2.fw:vendor/etc/firmware/cpp_firmware_v1_5_2.fw
-etc/firmware/cpp_firmware_v1_6_0.fw:vendor/etc/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw:vendor/etc/firmware/cpp_firmware_v1_8_0.fw
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_10_0.fw
+vendor/firmware/cpp_firmware_v1_2_0.fw
+vendor/firmware/cpp_firmware_v1_4_0.fw
+vendor/firmware/cpp_firmware_v1_5_0.fw
+vendor/firmware/cpp_firmware_v1_5_2.fw
+vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_8_0.fw
 
 # Camera sensors 
 vendor/lib/libmmcamera_isp_abf40.so
@@ -243,22 +228,24 @@ vendor/lib/libmmcamera_isp_wb40.so
 -etc/qdcm_calib_data_otm1901a_1080p_video_TianMa.xml
 
 # Fingerprint 
-lib/hw/fingerprint.default.so:vendor/hw/lib/fingerprint.default.so
-lib/libcom_fingerprints_service.so:vendor/lib/libcom_fingerprints_service.so
-lib/lib_fpc_tac_shared.so:vendor/lib/lib_fpc_tac_shared.so
-lib64/hw/fingerprint.default.so:vendor/hw/lib64/fingerprint.default.so
-lib64/libcom_fingerprints_service.so:vendor/lib64/libcom_fingerprints_service.so
-lib64/lib_fpc_tac_shared.so:vendor/lib64/lib_fpc_tac_shared.so
+vendor/hw/lib/fingerprint.default.so
+vendor/lib/libcom_fingerprints_service.so
+vendor/lib/lib_fpc_tac_shared.so
+vendor/hw/lib64/fingerprint.default.so
+vendor/lib64/libcom_fingerprints_service.so
+vendor/lib64/lib_fpc_tac_shared.so
+vendor/lib/fingerprint.msm8937.so
+vendor/lib64/fingerprint.msm8937.so
 
 # Graphics firmware  
-etc/firmware/a530_gpmu.fw2:vendor/firmware/a530_gpmu.fw2 
-etc/firmware/a530_pfp.fw:vendor/firmware/a530_pfp.fw 
-etc/firmware/a530_pm4.fw:vendor/firmware/a530_pm4.fw 
-etc/firmware/a530v1_pfp.fw:vendor/firmware/a530v1_pfp.fw 
-etc/firmware/a530v1_pm4.fw:vendor/firmware/a530v1_pm4.fw 
-etc/firmware/a530v2_seq.fw2:vendor/firmware/a530v2_seq.fw2 
-etc/firmware/a530v3_gpmu.fw2:vendor/firmware/a530v3_gpmu.fw2 
-etc/firmware/a530v3_seq.fw2:vendor/firmware/a530v3_seq.fw2
+vendor/firmware/a530_gpmu.fw2 
+vendor/firmware/a530_pfp.fw 
+vendor/firmware/a530_pm4.fw 
+vendor/firmware/a530v1_pfp.fw 
+vendor/firmware/a530v1_pm4.fw 
+vendor/firmware/a530v2_seq.fw2 
+vendor/firmware/a530v3_gpmu.fw2 
+vendor/firmware/a530v3_seq.fw2
 
 # WIFI
 vendor/bin/wcnss_service
