@@ -32,6 +32,17 @@ etc/acdbdata/msm8937-karate-snd-card/Speaker_cal.acdb:vendor/etc/acdbdata/msm893
 
 # Camera 
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
+vendor/lib/libivc_smartengine.so
+vendor/lib/libmpbase.so
+vendor/lib/libcamera_bm_algo.so
+vendor/lib/libchromaflash.so
+vendor/lib/libflash_pmic.so
+vendor/lib/libjpegdhw.so
+vendor/lib/libjpegehw.so
+vendor/lib/libjson.so
+vendor/lib/libllvd_smore.so
+vendor/lib/libllvd_sw_tnr.so
+vendor/lib/libmotocalibration.so
 vendor/lib/libmmcamera_dw9767_karateof_eeprom.so
 vendor/lib/libmmcamera_dw9767_karateqt_eeprom.so
 vendor/lib/libmmcamera_imx219_karateof_eeprom.so
@@ -93,6 +104,11 @@ vendor/lib/libactuator_dw9767_karateof.so
 vendor/lib/libactuator_dw9767_karateqt.so
 
 # Camera chromatix 
+vendor/lib/libchromatix_csidtg_common.so
+vendor/lib/libchromatix_csidtg_cpp_preview.so
+vendor/lib/libchromatix_csidtg_postproc.so
+vendor/lib/libchromatix_csidtg_preview.so
+vendor/lib/libchromatix_csidtg_zsl_preview.so
 vendor/lib/libchromatix_imx219_karateof_a3_default_preview.so
 vendor/lib/libchromatix_imx219_karateof_a3_default_video.so
 vendor/lib/libchromatix_imx219_karateof_a3_hfr_120.so
